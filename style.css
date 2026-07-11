@@ -728,7 +728,78 @@ textarea.form-control {
 
 
 /* ────────────────────────────────────────────
-   13. LOGIN PAGE
+   13. LANDING PAGE ENHANCEMENTS
+   ──────────────────────────────────────────── */
+
+.hero-content {
+    max-width: 760px;
+    margin: 0 auto;
+}
+
+.hero-actions {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.section-title h2 {
+    margin-bottom: 8px;
+}
+
+.section-title p {
+    color: #666666;
+    max-width: 640px;
+    margin: 0 auto;
+}
+
+.landing-highlight {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    margin-top: 20px;
+}
+
+.landing-panel {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+}
+
+.landing-panel h2 {
+    margin-bottom: 14px;
+}
+
+.feature-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.feature-list li {
+    padding: 8px 0 8px 20px;
+    position: relative;
+    color: #4f4f4f;
+}
+
+.feature-list li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #1a5c2a;
+    font-weight: 700;
+}
+
+
+/* ────────────────────────────────────────────
+   14. LOGIN PAGE
    ──────────────────────────────────────────── */
 
 .login-wrapper {
