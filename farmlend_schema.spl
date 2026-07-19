@@ -48,3 +48,16 @@ CREATE TABLE IF NOT EXISTS `bookings` (
     FOREIGN KEY (`user_id`) REFERENCES `users`(`id`) ON DELETE CASCADE,
     FOREIGN KEY (`equipment_id`) REFERENCES `equipment`(`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+INSERT INTO `users` (`full_name`, `email`, `password_hash`, `role`) 
+VALUES ('System Administrator', 'admin@farmlend.lk', '$2y$10$eO.d1G4F.s.w0yq7K.wN7u.e2v8O/q7yZ3k1o2p3M4n5b6v7c8x9', 'admin')
+ON DUPLICATE KEY UPDATE email=email;
+
+-- Default Categories
+INSERT INTO `categories` (`name`, `description`) VALUES 
+('Tractors', 'Heavy and light duty tractors for field work'),
+('Harvesting', 'Harvesters, reapers, and threshers'),
+('Irrigation', 'Water pumps and pipe systems'),
+('Soil Preparation', 'Plows, harrows, and cultivators')
+ON DUPLICATE KEY UPDATE name=name
