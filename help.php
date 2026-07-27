@@ -11,6 +11,8 @@
 include 'header.php';
 ?>
 
+<div style="padding: 0 20px;">
+
 <!-- Hero Banner -->
 <section class="hero">
     <h1>&#x2753; Help &amp; User Guide</h1>
@@ -272,5 +274,7 @@ include 'header.php';
     &nbsp;
     <a href="login.php" class="btn btn-primary btn-lg">Log In</a>
 </div>
+
+</div><!-- end .page-padding -->
 
 <?php include 'footer.php'; ?>
