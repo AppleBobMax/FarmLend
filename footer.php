@@ -1,15 +1,4 @@
 <?php
-// ============================================================
-// FARMLEND - FOOTER.PHP
-// ============================================================
-// Include this file at the bottom of EVERY page:
-//     <?php include 'footer.php'; ?>
-//
-// This file provides:
-//   - The closing </main> tag (matching the one in header.php)
-//   - The site footer with copyright and quick links
-//   - The closing </body> and </html> tags
-// ============================================================
 ?>
 
 </main>
