@@ -130,7 +130,7 @@ while($row = $result->fetch_assoc()){
 
 <div class="card-img-placeholder">
 
-<img src="4to/<?php echo $row['image']; ?>" 
+<img src="4to/<?php echo $row['image_url']; ?>" 
 alt="Equipment">
 
 </div>
@@ -150,7 +150,7 @@ alt="Equipment">
 
 <div class="price">
 
-Rs. <?php echo $row['price']; ?>
+Rs. <?php echo $row['daliy_rate']; ?>
 
 <span class="price-unit">
 / day
