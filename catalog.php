@@ -1,23 +1,25 @@
 <?php
-// Remove these 2 debug lines before final submission - they're only
-// here so YOU can see real error messages while building/testing.
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
+// ============================================================
+// catalog.php  —  Equipment Catalog page
+// Group 87 - FarmLend
+// Follows Pattern B (Protected Page) from the FarmLend Template
+// Usage Guide.
+// ============================================================
 
 session_start();
 require_once 'db_connect.php';
 
 // Block guests before any HTML is generated (Pattern B in the guide)
-//if (!isset($_SESSION['user_id'])) {
-//   header('Location: login.php');
-//    exit;
-//}
+if (!isset($_SESSION['user_id'])) {
+    header('Location: login.php');
+    exit;
+}
 
-// ---- Read search box + category filter from the URL ----
+// ---- Read search box + type filter from the URL ----
 $search      = isset($_GET['search'])      ? trim($_GET['search']) : '';
 $category_id = isset($_GET['category_id']) ? (int)$_GET['category_id'] : 0;
 
-// ---- Categories come from their own table now (not a "type" column) ----
+// ---- Get the list of categories for the dropdown (dynamic, from the DB) ----
 $cat_result = $conn->query("SELECT id, name FROM categories ORDER BY name ASC");
 
 // ---- Build the main search query safely (prepared statement) ----
@@ -57,6 +59,7 @@ include 'header.php';
     <p>Browse available agricultural machinery for rent.</p>
 </div>
 
+<!-- Search + filter bar -->
 <form class="search-bar" method="get" action="catalog.php">
     <input type="text" class="form-control" name="search"
            placeholder="Search equipment by name..."
@@ -77,6 +80,7 @@ include 'header.php';
 
 <?php if ($result->num_rows === 0): ?>
 
+    <!-- Empty state -->
     <div class="empty-state">
         <div class="empty-state-icon">&#x1F50D;</div>
         <h3>No Equipment Found</h3>
@@ -86,6 +90,7 @@ include 'header.php';
 
 <?php else: ?>
 
+    <!-- Equipment card grid -->
     <div class="card-grid mt-20">
         <?php while ($item = $result->fetch_assoc()): ?>
             <div class="card">
@@ -118,9 +123,13 @@ include 'header.php';
                         Rs. <?php echo number_format($item['daily_rate'], 2); ?>
                         <span class="price-unit">/ day</span>
                     </span>
-                    <a href="booking.php?id=<?php echo (int)$item['id']; ?>" class="btn btn-primary btn-sm">
-                        Book Now
-                    </a>
+                    <?php if ($item['status'] === 'available'): ?>
+                        <a href="booking.php?id=<?php echo (int)$item['id']; ?>" class="btn btn-primary btn-sm">
+                            Book Now
+                        </a>
+                    <?php else: ?>
+                        <span class="btn btn-secondary btn-sm">Unavailable</span>
+                    <?php endif; ?>
                 </div>
             </div>
         <?php endwhile; ?>
