@@ -6,9 +6,10 @@ include("header.php");
 
 
 // Check user login
-
-
-
+if (!isset($_SESSION['user_id'])) {
+    header('Location: login.php');
+    exit;
+}
 // Logged-in user ID
 
 $user_id = $_SESSION['user_id'];
