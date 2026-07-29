@@ -1,28 +1,26 @@
 <?php
 // ============================================================
 // catalog.php  —  Equipment Catalog page
-// Group 87 - FarmLend
-// Follows Pattern B (Protected Page) from the FarmLend Template
-// Usage Guide.
+
 // ============================================================
 
 session_start();
 require_once 'db_connect.php';
 
-// Block guests before any HTML is generated (Pattern B in the guide)
+// Block guests 
 if (!isset($_SESSION['user_id'])) {
     header('Location: login.php');
     exit;
 }
 
-// ---- Read search box + type filter from the URL ----
+// Read search box + type filter 
 $search      = isset($_GET['search'])      ? trim($_GET['search']) : '';
 $category_id = isset($_GET['category_id']) ? (int)$_GET['category_id'] : 0;
 
-// ---- Get the list of categories for the dropdown (dynamic, from the DB) ----
+//Get the list of categories for the dropdown 
 $cat_result = $conn->query("SELECT id, name FROM categories ORDER BY name ASC");
 
-// ---- Build the main search query safely (prepared statement) ----
+//  Build the main search query safely 
 // JOIN equipment to categories to get the category name for display.
 $sql = "SELECT e.id, e.name, e.description, e.daily_rate, e.status, e.image_url,
                c.name AS category_name
