@@ -3,7 +3,7 @@
 // FARMLEND - HEADER.PHP
 // ============================================================
 // Include this file at the top of EVERY page:
-//     include 'header.php'; ?>
+//     include 'header.php'; 
 //
 // This file provides:
 //   - Session initialization
