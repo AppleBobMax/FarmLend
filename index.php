@@ -156,6 +156,10 @@ Rs. <?php echo $row['daliy_rate']; ?>
 / day
 </span>
 
+<a href="Equipment.php" class="btn btn-primary btn-sm">
+Rent Now
+</a> 
+
 </div>
 </div>
 </div>
