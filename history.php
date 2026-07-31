@@ -88,6 +88,9 @@ $result = $conn->query($sql);
             <tr>
                 <td colspan="6" style="text-align:center;">
                     No rental history found.
+                     <a href="Equipment.php" class="btn btn-primary btn-sm">
+                    Rent Equipment
+                    </a> 
                 </td>
             </tr>
 
