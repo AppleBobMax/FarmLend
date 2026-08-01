@@ -3,7 +3,7 @@
 // FARMLEND - HEADER.PHP
 // ============================================================
 // Include this file at the top of EVERY page:
-//     include 'header.php'; 
+//     include 'header.php';
 //
 // This file provides:
 //   - Session initialization
@@ -15,7 +15,7 @@
 // ============================================================
 
 // Start the session ONLY if one has not already been started.
-// This prevents "session already active" warnings if another 
+// This prevents "session already active" warnings if another
 // file (like a login handler) already called session_start().
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
@@ -26,8 +26,8 @@ $current_page = basename($_SERVER['PHP_SELF']);
 
 // Read login status and role from the session.
 $is_logged_in = isset($_SESSION['user_id']);
-$user_role     = isset($_SESSION['role'])     ? $_SESSION['role']     : '';
-$username      = isset($_SESSION['username']) ? $_SESSION['username'] : '';
+$user_role    = isset($_SESSION['role'])     ? $_SESSION['role']     : '';
+$username     = isset($_SESSION['username'])  ? $_SESSION['username'] : '';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -67,19 +67,11 @@ $username      = isset($_SESSION['username']) ? $_SESSION['username'] : '';
 
             <?php if ($is_logged_in): ?>
 
-                <!-- Catalog (logged-in users only) -->
+                <!-- Catalog (logged-in users only). Booking starts from here. -->
                 <li>
                     <a href="catalog.php"
                        class="<?php echo ($current_page === 'catalog.php') ? 'active' : ''; ?>">
                        Catalog
-                    </a>
-                </li>
-
-                <!-- Book Equipment (logged-in users only) -->
-                <li>
-                    <a href="booking.php"
-                       class="<?php echo ($current_page === 'booking.php') ? 'active' : ''; ?>">
-                       Book Equipment
                     </a>
                 </li>
 
