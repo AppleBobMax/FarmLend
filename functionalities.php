@@ -1,12 +1,4 @@
 <?php
-// ============================================================
-// FARMLEND - FUNCTIONALITIES.PHP
-// ============================================================
-// Public page — no login required.
-// Lists all system features / capabilities of FarmLend.
-// Uses style.css classes: hero, page-header, feature-list,
-// feature-item, section, alert-info, btn, etc.
-// ============================================================
 
 include 'header.php';
 ?>
@@ -54,13 +46,13 @@ include 'header.php';
         <!-- Feature 4 -->
         <div class="feature-item">
             <h3>&#x1F4C5; Smart Booking Engine</h3>
-            <p>A reservation system that handles start and end date selection, automatically calculates the total rental cost based on the duration, and tracks booking statuses including Pending, Confirmed, and Returned.</p>
+            <p>A reservation system that handles start and end date selection, automatically calculates the total rental cost based on the duration, and tracks booking statuses including Pending, Approved, Completed, and Cancelled.</p>
         </div>
 
         <!-- Feature 5 -->
         <div class="feature-item">
             <h3>&#x1F6AB; Conflict Prevention</h3>
-            <p>Advanced overlap detection that prevents double-booking by ensuring a piece of equipment cannot be reserved if the requested dates intersect with an existing confirmed booking.</p>
+            <p>Advanced overlap detection that prevents double-booking by ensuring a piece of equipment cannot be reserved if the requested dates intersect with an existing pending or approved booking.</p>
         </div>
 
         <!-- Feature 6 -->

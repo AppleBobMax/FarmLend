@@ -5,6 +5,7 @@ USE farmlend;
 -- Create the Users Table 
 CREATE TABLE IF NOT EXISTS `users` (
     `id` INT(11) AUTO_INCREMENT PRIMARY KEY,
+    `username` VARCHAR(50) NOT NULL UNIQUE,
     `full_name` VARCHAR(100) NOT NULL,
     `email` VARCHAR(100) NOT NULL UNIQUE,
     `password_hash` VARCHAR(255) NOT NULL,
@@ -12,7 +13,7 @@ CREATE TABLE IF NOT EXISTS `users` (
     `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Create the Categories Table 
+-- Create the Categories Table
 CREATE TABLE IF NOT EXISTS `categories` (
     `id` INT(11) AUTO_INCREMENT PRIMARY KEY,
     `name` VARCHAR(50) NOT NULL UNIQUE,
@@ -29,7 +30,7 @@ CREATE TABLE IF NOT EXISTS `equipment` (
     `description` TEXT NOT NULL,
     `daily_rate` DECIMAL(10, 2) NOT NULL,
     `status` ENUM('available', 'rented', 'maintenance') DEFAULT 'available',
-    `image_url` VARCHAR(255) DEFAULT 'default_tractor.jpg',
+    `image_url` VARCHAR(255) DEFAULT '',
     `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (`owner_id`) REFERENCES `users`(`id`) ON DELETE CASCADE,
     FOREIGN KEY (`category_id`) REFERENCES `categories`(`id`) ON DELETE SET NULL
@@ -50,9 +51,14 @@ CREATE TABLE IF NOT EXISTS `bookings` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
-INSERT INTO `users` (`full_name`, `email`, `password_hash`, `role`) 
-VALUES ('System Administrator', 'admin@farmlend.lk', '$2y$10$eO.d1G4F.s.w0yq7K.wN7u.e2v8O/q7yZ3k1o2p3M4n5b6v7c8x9', 'admin')
-ON DUPLICATE KEY UPDATE email=email;
+-- Users. The password hashes below are real bcrypt hashes.
+-- Login credentials:
+--     admin  / admin123    (role: admin)
+--     uoc    / uoc         (role: farmer  = ordinary user, required by the spec)
+INSERT INTO `users` (`username`, `full_name`, `email`, `password_hash`, `role`) VALUES
+('admin',  'System Administrator', 'admin@farmlend.lk', '$2b$12$e0Uot5ZAb2DJMgz9hZX/g.YF2Gu5VTxD4R3UV2rndF.35BtyDRhda', 'admin'),
+('uoc',    'Default User',         'uoc@farmlend.lk',   '$2b$12$wmPMoL8NoaGrVkp/2TmMA..izWlbfqO5aIXLDJaEE1GvhA/ymnWW2', 'farmer')
+ON DUPLICATE KEY UPDATE username = username;
 
 -- Default Categories
 INSERT INTO `categories` (`name`, `description`) VALUES 
@@ -60,4 +66,4 @@ INSERT INTO `categories` (`name`, `description`) VALUES
 ('Harvesting', 'Harvesters, reapers, and threshers'),
 ('Irrigation', 'Water pumps and pipe systems'),
 ('Soil Preparation', 'Plows, harrows, and cultivators')
-ON DUPLICATE KEY UPDATE name=name
+ON DUPLICATE KEY UPDATE name=name;

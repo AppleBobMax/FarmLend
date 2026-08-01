@@ -1,12 +1,4 @@
 <?php
-// ============================================================
-// FARMLEND - HELP.PHP
-// ============================================================
-// Public page — no login required.
-// Provides step-by-step instructions on how to use FarmLend.
-// Uses style.css classes: hero, page-header, section,
-// help-step, help-step-number, help-step-content, alert, etc.
-// ============================================================
 
 include 'header.php';
 ?>
@@ -44,7 +36,7 @@ include 'header.php';
         <div class="help-step-number">1</div>
         <div class="help-step-content">
             <h3>How to Create an Account</h3>
-            <p>Navigate to the <strong>Login</strong> page using the link in the top navigation bar. If you do not already have an account, look for the <strong>"Register"</strong> or <strong>"Sign Up"</strong> link below the login form. Fill in your desired username and password, then click <strong>Register</strong>. Once your account is created, you will be redirected to the login page where you can sign in immediately.</p>
+            <p>Go to the <strong>Login</strong> page using the link in the top navigation bar, then click the <strong>"Register here"</strong> link below the login form. On the registration page, fill in your <strong>full name</strong>, a <strong>username</strong>, your <strong>email</strong>, and a <strong>password</strong> (at least 6 characters), then re-type the password to confirm it. Click <strong>Register</strong>. Once your account is created, you will be sent to the login page where you can sign in immediately.</p>
         </div>
     </div>
 
@@ -93,7 +85,7 @@ include 'header.php';
         <div class="help-step-number">5</div>
         <div class="help-step-content">
             <h3>How to Search and Filter Equipment</h3>
-            <p>At the top of the Catalog page, you will find a <strong>search bar</strong>. Type a keyword (e.g., "Kubota" or "harvester") to search by name. You can also use the <strong>category dropdown</strong> to filter by equipment type, such as Tractors or Harvesters. Click <strong>Search</strong> to apply your filters. To reset, clear the search field and select "All Types."</p>
+            <p>At the top of the Catalog page, you will find a <strong>search bar</strong>. Type a keyword (e.g., "Kubota" or "harvester") to search by name. You can also use the <strong>category dropdown</strong> to filter by equipment type, such as Tractors or Harvesters. Click <strong>Search</strong> to apply your filters. To reset, clear the search field and select <strong>"All Categories."</strong></p>
         </div>
     </div>
 
@@ -111,7 +103,7 @@ include 'header.php';
         <div class="help-step-number">7</div>
         <div class="help-step-content">
             <h3>What If the Equipment Is Already Booked?</h3>
-            <p>FarmLend includes <strong>conflict prevention</strong>. If the dates you selected overlap with an existing confirmed booking for the same equipment, the system will display an error message: <em>"This equipment is already booked for part of that date range."</em> Simply choose different dates and try again.</p>
+            <p>FarmLend includes <strong>conflict prevention</strong>. If the dates you selected overlap with an existing pending or approved booking for the same equipment, the system will display an error message: <em>"This equipment is already booked for part of that date range."</em> Simply choose different dates and try again.</p>
         </div>
     </div>
 </div>
@@ -133,7 +125,7 @@ include 'header.php';
         <div class="help-step-number">8</div>
         <div class="help-step-content">
             <h3>How to View Your Rental History</h3>
-            <p>Click <strong>My Rentals</strong> in the navigation bar. This page shows a table of all your bookings, including the equipment name, rental dates, total cost, and current status. You can see which bookings are <strong>Pending</strong> (awaiting admin approval), <strong>Confirmed</strong> (approved and active), or <strong>Returned</strong> (completed).</p>
+            <p>Click <strong>My Rentals</strong> in the navigation bar. This page shows a table of all your bookings, including the equipment name, rental dates, total cost, and current status. Any booking that is still <strong>Pending</strong> has a <strong>Cancel</strong> button, so you can withdraw a request before an administrator acts on it.</p>
         </div>
     </div>
 
@@ -142,11 +134,12 @@ include 'header.php';
         <div class="help-step-number">9</div>
         <div class="help-step-content">
             <h3>Understanding Booking Statuses</h3>
-            <p>Every booking goes through a lifecycle:</p>
+            <p>Every booking moves through a lifecycle:</p>
             <p>
-                <strong>&#x1F7E1; Pending</strong> — Your booking has been submitted and is waiting for an administrator to review it.<br>
-                <strong>&#x1F7E2; Confirmed</strong> — An administrator has approved your booking. The equipment is reserved for your selected dates.<br>
-                <strong>&#x26AA; Returned</strong> — The rental period is over and the equipment has been returned.
+                <strong>&#x1F7E1; Pending:</strong> Your booking has been submitted and is waiting for an administrator to review it. You can still cancel it at this stage.<br>
+                <strong>&#x1F7E2; Approved:</strong> An administrator has approved your booking. The equipment is reserved for your selected dates.<br>
+                <strong>&#x26AA; Completed:</strong> The rental period is over and the equipment has been returned.<br>
+                <strong>&#x1F534; Cancelled:</strong> The booking was cancelled by you while it was pending, or it was rejected by an administrator.
             </p>
         </div>
     </div>

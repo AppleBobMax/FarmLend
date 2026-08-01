@@ -650,6 +650,22 @@ textarea.form-control {
     color: #1565c0;
 }
 
+.badge-approved {
+    background-color: #e8f5e9;
+    color: #1a5c2a;
+}
+
+.badge-completed {
+    background-color: #e0e0e0;
+    color: #555555;
+}
+
+.badge-cancelled {
+    background-color: #fce4e4;
+    color: #c62828;
+}
+
+
 
 /* ────────────────────────────────────────────
    11. STAT CARDS
